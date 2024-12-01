@@ -5,7 +5,7 @@ AusEnergy has provided a dataset named energy_demand.csv containing daily record
 
 <br> Their request is to analyze the impact of holidays and school days on electricity demand, analyze the impact of weather on demand. Summarize the trends of demand over time.
 
-<h2>Software and Languages Used</h2>
+<h2>Software and Languages Used </h2>
 
 - Microsoft Excel
 - Microsoft Excel associated formulas and functions  
