@@ -64,7 +64,7 @@ To find the week of year required a different function WEEKNUM was used:
   * WEEKNUM(A345, 2) calculates the week number of the year for the date in A345, with weeks starting on Monday (2).
  
 - [@Date]
-  * If the condition is false, it returns the original value.
+  * If the condition is false, it returns the original value!
 
 
 
