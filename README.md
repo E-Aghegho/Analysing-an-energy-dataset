@@ -24,7 +24,7 @@ AusEnergy has provided a dataset named energy_demand.csv containing daily record
 - <strong>Solar_exposure:</strong>float, the total daily sunlight energy in MJ/m^2.
 - <strong>Rainfall:</strong> float, the daily rainfall in mm.
 
-<h3>A example of the data:</h3>
+<h3>An example of the data:</h3>
 <img src="project_1_raw_data_2.png">
 
 <h2>Walk-through:</h2>
