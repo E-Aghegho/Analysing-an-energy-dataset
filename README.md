@@ -1,4 +1,4 @@
-<h1>Analysing an Energy dataset</h1>
+<h1>Analysing an Energy Dataset</h1>
 
 <h2>Description</h2>
 AusEnergy has provided a dataset named energy_demand.csv containing daily records of electricity demand, recommended retail prices, and weather conditions from 2015 to 2020. The dataset includes columns for the date, total daily electricity demand (in MWh), recommended retail price (in AUD$ / MWh), minimum and maximum temperatures (in Celsius), total daily sunlight energy (in MJ/m^2), and daily rainfall (in mm). <br> 
