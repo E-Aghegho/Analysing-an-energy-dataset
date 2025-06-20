@@ -1,77 +1,83 @@
-<h1>Analysing an Energy Dataset</h1>
+# Analysing an Energy Dataset (from 2015–2020)
 
-<h2>Description</h2>
-AusEnergy has provided a dataset named energy_demand.csv containing daily records of electricity demand, recommended retail prices, and weather conditions from 2015 to 2020. The dataset includes columns for the date, total daily electricity demand (in MWh), recommended retail price (in AUD$ / MWh), minimum and maximum temperatures (in Celsius), total daily sunlight energy (in MJ/m^2), and daily rainfall (in mm). <br> 
+This repository presents a comprehensive, end-to-end analysis of electricity demand, pricing, and environmental factors in Australia, completed by a professional data analyst. The project leverages historical data from AusEnergy (2015–2020) and integrates calendar and climate data to uncover patterns in energy consumption.
 
-<br> Their request is to analyze the impact of holidays and school days on electricity demand, analyze the impact of weather on demand. Summarize the trends of demand over time.
+The final Excel workbook demonstrates a rigorous data preparation and analysis workflow, complete with visual insights, structured summaries, and presentation-ready deliverables.
 
-<h2>Software and Languages Used </h2>
+---
+
+## 🔍 Analytical Process
+
+### **1. Data Integration & Structuring**
+The analyst began by consolidating multiple data sources into a unified workbook:
+- Merged **daily electricity demand, RRP, and weather metrics**.
+- Integrated **school calendars** and **public holiday data** via lookup functions.
+- Organized the workbook with dedicated tabs for raw data and derived features.
+
+### **2. Feature Engineering**
+To enrich the dataset:
+- Extracted date components: **Day of Week**, **Month**, **Year**, and **Week Number**.
+- Added **Holiday** and **School Day** indicators using `VLOOKUP`.
+- Calculated a new **Revenue** metric as `Demand × RRP`.
+
+### **3. Formatting for Data Usability**
+The dataset was formatted for clarity and exploration:
+- Dates were displayed in long, friendly format.
+- Demand and revenue values were styled with thousands separators and Australian dollar currency formatting.
+- **Conditional formatting** highlighted:
+  - Demand levels (green-to-red scale)
+  - Outlier RRP values
+  - Weather fluctuations using context-aware color scales
+
+### **4. Summary Statistics**
+Two sets of summary tables were created:
+- **Min, max, and average** values for both **demand** and **revenue**, including associated dates.
+- Weekend-specific analysis for **Saturday and Sunday peak demand**.
+
+### **5. Exploratory Time-Series Analysis**
+To analyze peak and low demand periods:
+- A new tab displayed the **Top 20 and Bottom 20 demand days**, each ranked and annotated.
+- A **line chart** traced daily demand fluctuations across the six-year period, making seasonality and long-term trends immediately visible.
+
+### **6. Weather Impact Investigation**
+Multiple scatter plots explored the relationship between environmental factors and electricity usage:
+- Demand vs. **maximum temperature**, **solar exposure**, and **rainfall**.
+- Segmented views plotted demand separately for **school days vs. non-school days** and **holidays vs. working days**.
+- **Polynomial trendlines** were used to model nonlinear relationships.
+
+### **7. Time-Based Demand Insights Using Pivot Tables**
+To expose consumption trends by time period:
+- A **Year-over-Year** pivot table compared monthly demand across all years (excluding incomplete October 2020).
+- A pivot chart visualized **weekly demand patterns across days of the week**, with conditional formatting to spotlight high and low demand clusters.
+
+### **8. Report Presentation & Workbook Finalization**
+The analyst finalized the deliverable with:
+- A clean **cover sheet** introducing the project scope and findings.
+- Hidden raw data tabs for a polished presentation.
+- Verified chart readability, consistent styles, and workbook usability.
+
+---
+
+## 📂 File Contents
+
+- `AusEnergy Demand Analysis.xlsx`: Complete analysis workbook featuring datasets, calculations, visualizations, and summaries.
+- Source files (e.g. `energy_demand.csv`, `holidays.xlsx`) referenced but not included.
+
+---
+
+## 🛠 Tools & Techniques
 
 - Microsoft Excel
-- Microsoft Excel associated formulas and functions  
+  - Functions: `VLOOKUP`, `IFERROR`, `INDEX`, `MATCH`, `MAXIFS`, `TEXT`
+  - Pivot Tables & Pivot Charts
+  - Conditional Formatting
+  - Scatterplots and Polynomial Trendlines
 
-<h2>Environments Used </h2>
+---
 
-- <b>Windows 11</b> 
+## ✨ Key Outcomes
 
-<h2>Data Recieved</h2>
-<h3>Here are the columns and their definitions:</h3>
-
-- <strong>Date:</strong> datetime, the date of the recording.
-- <strong>Demand:</strong> float, a recommended retail price in AUD$/MWh.
-- <strong>RRP:</strong>float, the total daily electricity demand in MWh.
-- <strong>Max_temperature:</strong> float, the maximum temperature during the day in celsius.
-- <strong>Solar_exposure:</strong>float, the total daily sunlight energy in MJ/m^2.
-- <strong>Rainfall:</strong> float, the daily rainfall in mm.
-
-<h3>An example of the data:</h3>
-<img src="project_1_raw_data_2.png">
-
-<h2>Walk-through:</h2>
-<h3>Finding and loading the data<h3>
-
-After conducting research online, data on school holidays in Australia from 2015 to 2020 was gathered and organized. Below is an example of the collected data.
-<br>
-<br><img src="holiday_days.jpg">
-<br>
-<h3>Breaking the Date Column into Components</h3>
-After the data was loaded togther the next step was breaking the date column into year, month of year, week of year and day of the week.
-This used the TEXT function of Excel:
-
-```bash
-=TEXT([@Date],"dddd") #for day of the week
-=TEXT([@Date],"mmmm") #for month in the year
-=TEXT([@Date],"yyyy") #for year 
-```
-To find the week of year required a different function WEEKNUM was used:
-
-```bash
-=IF(CELL("format",[@Date])="D1", WEEKNUM([@Date], 2), [@Date])
-```
-
-<h4>Components explained</h4>
-
-- IF(condition, value_if_true, value_if_false)
-  * The IF function checks whether a condition is met and returns one value if true and another value if false.
- 
-- CELL("format", [@Date])="D1"
-  * This part of the formula uses the CELL function to get the format of the cell
-  * "D1" is a specific format code that represents a date format.
-  * The condition checks if the format code of A345 is equal to "D1".
- 
-- WEEKNUM([@Date], 2)
-  * If the condition is true (i.e., A345 is in date format "D1"), the formula returns the week number of the date in A345.
-  * WEEKNUM(A345, 2) calculates the week number of the year for the date in A345, with weeks starting on Monday (2).
- 
-- [@Date]
-  * If the condition is false, it returns the original value!
-
-
-
-
-
-
-
-
-
-
+Through this process, the analyst:
+- Identified strong temperature-related demand behavior across years.
+- Quantified the influence of **holidays** and **school calendars** on consumption trends.
+- Delivered a structured, clean, and insightful workbook ready for business presentation or stakeholder review.
